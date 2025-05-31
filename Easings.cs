@@ -107,11 +107,15 @@ namespace NnUtils.Modules.Easings
 
         public static float Linear(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             return Mathf.Lerp(start, end, value);
         }
 
         public static float Spring(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             value = Mathf.Clamp01(value);
             value = (Mathf.Sin(value * Mathf.PI * (0.2f + 2.5f * value * value * value)) *
                      Mathf.Pow(1f - value, 2.2f) + value) * (1f + (1.2f * (1f - value)));
@@ -120,18 +124,24 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseInQuad(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             end -= start;
             return end * value * value + start;
         }
 
         public static float EaseOutQuad(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             end -= start;
             return -end * value * (value - 2) + start;
         }
 
         public static float EaseInOutQuad(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             value /= .5f;
             end -= start;
             if (value < 1) return end * 0.5f * value * value + start;
@@ -141,12 +151,16 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseInCubic(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             end -= start;
             return end * value * value * value + start;
         }
 
         public static float EaseOutCubic(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             value--;
             end -= start;
             return end * (value * value * value + 1) + start;
@@ -154,6 +168,8 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseInOutCubic(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             value /= .5f;
             end -= start;
             if (value < 1) return end * 0.5f * value * value * value + start;
@@ -163,12 +179,16 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseInQuart(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             end -= start;
             return end * value * value * value * value + start;
         }
 
         public static float EaseOutQuart(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             value--;
             end -= start;
             return -end * (value * value * value * value - 1) + start;
@@ -176,6 +196,8 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseInOutQuart(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             value /= .5f;
             end -= start;
             if (value < 1) return end * 0.5f * value * value * value * value + start;
@@ -185,12 +207,16 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseInQuint(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             end -= start;
             return end * value * value * value * value * value + start;
         }
 
         public static float EaseOutQuint(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             value--;
             end -= start;
             return end * (value * value * value * value * value + 1) + start;
@@ -198,6 +224,8 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseInOutQuint(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             value /= .5f;
             end -= start;
             if (value < 1) return end * 0.5f * value * value * value * value * value + start;
@@ -207,36 +235,48 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseInSine(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             end -= start;
             return -end * Mathf.Cos(value * (Mathf.PI * 0.5f)) + end + start;
         }
 
         public static float EaseOutSine(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             end -= start;
             return end * Mathf.Sin(value * (Mathf.PI * 0.5f)) + start;
         }
 
         public static float EaseInOutSine(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             end -= start;
             return -end * 0.5f * (Mathf.Cos(Mathf.PI * value) - 1) + start;
         }
 
         public static float EaseInExpo(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             end -= start;
             return end * Mathf.Pow(2, 10 * (value - 1)) + start;
         }
 
         public static float EaseOutExpo(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             end -= start;
             return end * (-Mathf.Pow(2, -10 * value) + 1) + start;
         }
 
         public static float EaseInOutExpo(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             value /= .5f;
             end -= start;
             if (value < 1) return end * 0.5f * Mathf.Pow(2, 10 * (value - 1)) + start;
@@ -246,12 +286,16 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseInCirc(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             end -= start;
             return -end * (Mathf.Sqrt(1 - value * value) - 1) + start;
         }
 
         public static float EaseOutCirc(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             value--;
             end -= start;
             return end * Mathf.Sqrt(1 - value * value) + start;
@@ -259,6 +303,8 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseInOutCirc(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             value /= .5f;
             end -= start;
             if (value < 1) return -end * 0.5f * (Mathf.Sqrt(1 - value * value) - 1) + start;
@@ -268,6 +314,8 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseInBounce(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             end -= start;
             float d = 1f;
             return end - EaseOutBounce(0, end, d - value) + start;
@@ -275,6 +323,8 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseOutBounce(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             value /= 1f;
             end -= start;
             if (value < (1 / 2.75f))
@@ -300,6 +350,8 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseInOutBounce(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             end -= start;
             float d = 1f;
             if (value < d * 0.5f) return EaseInBounce(0, end, value * 2) * 0.5f + start;
@@ -308,6 +360,8 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseInBack(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             end -= start;
             value /= 1;
             float s = 1.70158f;
@@ -316,6 +370,8 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseOutBack(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             float s = 1.70158f;
             end -= start;
             value = (value) - 1;
@@ -324,6 +380,8 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseInOutBack(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             float s = 1.70158f;
             end -= start;
             value /= .5f;
@@ -340,6 +398,8 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseInElastic(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             end -= start;
 
             float d = 1f;
@@ -367,6 +427,8 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseOutElastic(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             end -= start;
 
             float d = 1f;
@@ -394,6 +456,8 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseInOutElastic(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             end -= start;
 
             float d = 1f;
@@ -431,22 +495,30 @@ namespace NnUtils.Modules.Easings
 
         public static float LinearD(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             return end - start;
         }
 
         public static float EaseInQuadD(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             return 2f * (end - start) * value;
         }
 
         public static float EaseOutQuadD(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             end -= start;
             return -end * value - end * (value - 2);
         }
 
         public static float EaseInOutQuadD(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             value /= .5f;
             end -= start;
 
@@ -462,11 +534,15 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseInCubicD(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             return 3f * (end - start) * value * value;
         }
 
         public static float EaseOutCubicD(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             value--;
             end -= start;
             return 3f * end * value * value;
@@ -474,6 +550,8 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseInOutCubicD(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             value /= .5f;
             end -= start;
 
@@ -489,11 +567,15 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseInQuartD(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             return 4f * (end - start) * value * value * value;
         }
 
         public static float EaseOutQuartD(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             value--;
             end -= start;
             return -4f * end * value * value * value;
@@ -501,6 +583,8 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseInOutQuartD(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             value /= .5f;
             end -= start;
 
@@ -516,11 +600,15 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseInQuintD(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             return 5f * (end - start) * value * value * value * value;
         }
 
         public static float EaseOutQuintD(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             value--;
             end -= start;
             return 5f * end * value * value * value * value;
@@ -528,6 +616,8 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseInOutQuintD(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             value /= .5f;
             end -= start;
 
@@ -543,34 +633,46 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseInSineD(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             return (end - start) * 0.5f * Mathf.PI * Mathf.Sin(0.5f * Mathf.PI * value);
         }
 
         public static float EaseOutSineD(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             end -= start;
             return (Mathf.PI * 0.5f) * end * Mathf.Cos(value * (Mathf.PI * 0.5f));
         }
 
         public static float EaseInOutSineD(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             end -= start;
             return end * 0.5f * Mathf.PI * Mathf.Sin(Mathf.PI * value);
         }
 
         public static float EaseInExpoD(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             return (10f * NaturalLOGOf2 * (end - start) * Mathf.Pow(2f, 10f * (value - 1)));
         }
 
         public static float EaseOutExpoD(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             end -= start;
             return 5f * NaturalLOGOf2 * end * Mathf.Pow(2f, 1f - 10f * value);
         }
 
         public static float EaseInOutExpoD(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             value /= .5f;
             end -= start;
 
@@ -586,11 +688,15 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseInCircD(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             return ((end - start) * value) / Mathf.Sqrt(1f - value * value);
         }
 
         public static float EaseOutCircD(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             value--;
             end -= start;
             return (-end * value) / Mathf.Sqrt(1f - value * value);
@@ -598,6 +704,8 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseInOutCircD(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             value /= .5f;
             end -= start;
 
@@ -613,6 +721,8 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseInBounceD(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             end -= start;
             float d = 1f;
 
@@ -621,6 +731,8 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseOutBounceD(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             value /= 1f;
             end -= start;
 
@@ -647,6 +759,8 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseInOutBounceD(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             end -= start;
             float d = 1f;
 
@@ -660,6 +774,8 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseInBackD(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             float s = 1.70158f;
 
             return 3f * (s + 1f) * (end - start) * value * value - 2f * s * (end - start) * value;
@@ -667,6 +783,8 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseOutBackD(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             float s = 1.70158f;
             end -= start;
             value = (value) - 1;
@@ -676,6 +794,8 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseInOutBackD(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             float s = 1.70158f;
             end -= start;
             value /= .5f;
@@ -693,11 +813,15 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseInElasticD(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             return EaseOutElasticD(start, end, 1f - value);
         }
 
         public static float EaseOutElasticD(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             end -= start;
 
             float d = 1f;
@@ -723,6 +847,8 @@ namespace NnUtils.Modules.Easings
 
         public static float EaseInOutElasticD(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             end -= start;
 
             float d = 1f;
@@ -760,6 +886,8 @@ namespace NnUtils.Modules.Easings
 
         public static float SpringD(float value, float start = 0, float end = 1)
         {
+            if (value is 0 or 1) return value;
+            
             value = Mathf.Clamp01(value);
             end -= start;
 
